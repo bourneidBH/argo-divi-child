@@ -1,0 +1,20 @@
+/*
+Theme Name: Divi Child Theme
+Theme URI: https://github.com/bourneidBH
+Description: Divi Child Theme For Argo Industries
+Author: bourneidBH
+Author URI: https://github.com/bourneidBH
+Version: 1.0.0
+Template: Divi
+*/
+
+:root {
+    --primary: #ec413a;
+    --primary-dark: #ca3933;
+    --secondary: #3e4382;
+    --secondary-dark: #252740;
+    --neutral-light: #ededed;
+    --neutral: #333333;
+    --gradient-bg-center: #2d2e32;
+    --gradient-bg-start: #0e0e0f;
+}

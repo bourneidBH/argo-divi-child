@@ -1,0 +1,1 @@
+# WordPress Divi Child Theme for Argo Industries
