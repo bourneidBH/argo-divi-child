@@ -15,3 +15,7 @@ function dt_enqueue_styles() {
   );
 }
 add_action( 'wp_enqueue_scripts', 'dt_enqueue_styles' );
+
+// WooCommerce Overrides
+// disable add to cart
+add_filter( 'woocommerce_is_purchasable', '__return_false');
