@@ -18,3 +18,21 @@ Template: Divi
     --gradient-bg-center: #2d2e32;
     --gradient-bg-start: #0e0e0f;
 }
+
+.argo-projects h3 {
+    font-family: 'Poppins',Helvetica,Arial,Lucida,sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 18px;
+    line-height: 1em;
+    text-align: center;
+    color: #fff;
+    padding-bottom: 10px;
+}
+
+.argo-projects p {
+    font-family: 'Poppins',Helvetica,Arial,Lucida,sans-serif;
+    font-weight: 300;
+    color: #fff;
+    text-align: center;
+}
