@@ -30,7 +30,7 @@ function argo_generate_custom_projects_module( $query_args ) {
     while ( $query->have_posts() ) : $query->the_post();
       $id = get_the_ID();
       $html .= '<div class="column size-1of3>';
-      $html .= "<article class='et_pb_post et_pb_post_id_$id clearfix post-$id project type-project status-publish has-post-thumbnail hentry'>";
+      $html .= "<article class='et_pb_post et_pb_post_id_$id clearfix post-$id project type-project status-publish has-post-thumbnail hentry argo-projects'>";
 
       if ( has_post_thumbnail( $id ) ) :
         $html .= '<div class="et_pb_image_container">';

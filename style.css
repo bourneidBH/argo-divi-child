@@ -36,3 +36,7 @@ Template: Divi
     color: #fff;
     text-align: center;
 }
+
+.argo-projects:hover {
+    background: var(--neutral);
+}
