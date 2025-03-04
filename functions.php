@@ -20,17 +20,23 @@ add_action( 'wp_enqueue_scripts', 'dt_enqueue_styles' );
 // disable add to cart
 add_filter( 'woocommerce_is_purchasable', '__return_false');
 
+function argo_var_dump( $var ) {
+  echo '<pre>';
+  var_dump($var);
+  echo '</pre>';
+}
+
 // custom projects module filtered by project category
 function argo_generate_custom_projects_module( $query_args ) {
   $query = new WP_Query($query_args);
 
   $html = '';
   if ( $query->have_posts() ) : 
-    $html .= '<div class="et_pb_salvattore_content" data-columns="3">';
-    while ( $query->have_posts() ) : $query->the_post();
+    $html .= '<div class="argo-projects">';
+    while ( $query->have_posts() ) : 
+      $query->the_post();
       $id = get_the_ID();
-      $html .= '<div class="column size-1of3>';
-      $html .= "<article class='et_pb_post et_pb_post_id_$id clearfix post-$id project type-project status-publish has-post-thumbnail hentry argo-projects'>";
+      $html .= '<article class="post-' . $id .' project has-post-thumbnail hentry">';
 
       if ( has_post_thumbnail( $id ) ) :
         $html .= '<div class="et_pb_image_container">';
@@ -46,15 +52,12 @@ function argo_generate_custom_projects_module( $query_args ) {
 
       if ( has_excerpt( $id) ) :
         $html .= '<div class="post-content">';
-        $html .= '<div class="post-content-inner">';
-        $html .= get_the_excerpt($id);
+        $html .= '<p>' . get_the_excerpt($id) . '</p>';
         $html .= '</div>';
-        $html .= '</div';
       endif;
       $html .= '</article>';
-      $html .= '</div>'; // end .column size-1of3
     endwhile;
-    $html .= '</div>'; // end .et_pb_salvattore_content
+    $html .= '</div>'; // end .argo-projects
   endif;
   wp_reset_query();
   wp_reset_postdata();
@@ -75,10 +78,12 @@ function argo_create_custom_project_feed( $args ) {
     'order' => 'DESC',
     'posts_per_page' => 3,
     'tax_query' => array(
-      'taxonomy' => 'category',
-      'field' => 'slug',
-      'terms' => $project_cat,
-    )
+      array(
+        'taxonomy' => 'project_category',
+        'field' => 'slug',
+        'terms' => $project_cat,
+      ),
+    ),
   );
 
   $html = argo_generate_custom_projects_module( $query_args );

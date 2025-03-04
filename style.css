@@ -20,7 +20,34 @@ Template: Divi
 }
 
 /* custom projects module */
-.argo-projects h3 {
+.argo-projects {
+    position: relative;
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(3, minmax(auto, 29.667%));
+    gap: 5.5%;
+}
+
+.argo-projects .et_pb_image_container {
+    display: block;
+    width: 100%;
+    position: relative;
+    padding-bottom: 56.66%;
+    margin: 0;
+    margin-bottom: 30px;
+}
+.argo-projects .post-content {
+    padding: 19px;
+    padding-top: 0;
+}
+.argo-projects article img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+.argo-projects h3.entry-title {
     font-family: 'Poppins',Helvetica,Arial,Lucida,sans-serif;
     font-weight: 700;
     text-transform: uppercase;
@@ -31,13 +58,28 @@ Template: Divi
     padding-bottom: 10px;
 }
 
-.argo-projects p {
+.argo-projects article p {
     font-family: 'Poppins',Helvetica,Arial,Lucida,sans-serif;
     font-weight: 300;
     color: #fff;
     text-align: center;
 }
 
-.argo-projects:hover {
+.argo-projects article:hover {
     background: var(--neutral);
+}
+
+/* Media Queries */
+@media (max-width: 980px) {
+    .argo-projects {
+        grid-template-columns: repeat(2, minmax(auto, 47.25%));   
+    }
+}
+@media (max-width: 767px) {
+    .argo-projects {
+        display: block;
+    }
+    .argo-projects article {
+        margin-bottom: 5.5%;
+    }
 }
